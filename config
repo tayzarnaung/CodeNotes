@@ -1,0 +1,13 @@
+#Multiple SSH keys for different github acoount
+
+#tzn68@gmail.com account
+Host github.com
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_rsa
+
+#tzn.it@gmail.com account
+Host github-tznit
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_rsa_tznit

@@ -1,0 +1,77 @@
+cat /etc/lsb-release (to find current OS version)
+top (show CPU Usage, Memory Usage, Process)  'q' to quit
+lscpu (CPU detail info)
+
+ifconfig
+ping google.com
+poweroff
+reboot
+
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+ls --help (to know partner of ls)
+ls -al    (-a, --all  & -l use long listing format)
+
+mkdir foldername
+rmdir emptyfolder,	rm -r foldername,	rm filename.txt
+
+cp source_path/filename.jpg ~/Pictures
+cp -r foldername 	destination_path
+
+mv filename.txt ~/Documents
+mv foldername ~/Documents
+
+cat /home/test.txt  #to view text or code from script
+nano /home/test.txt
+gedit /home/test.txt
+touch /home/test.txt #to crate file
+
+ls -l > filename.txt
+echo "Here is your desired string." > filename.txt
+echo "Hello, World"
+
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+gzip hello.txt,	gzip -k hello.txt #(-k, --keep don't del input file)
+gzip -d hello.txt.gz	#d for Decompress
+gzip -dk hello.txt.gz	#k is not to lose org file
+
+tar -czf archive.tar.gz foldername	#c to create
+tar -xzf archive.tar.gz 			#x to extract
+tar -xzf archive.tar.gz -C ~/Documents #C to change dir
+
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+sudo apt-get install vlc gparted gnome-tweak-tool wget
+sudo apt-get remove vlc (to remove binary files)
+sudo apt-get remove purge vlc 
+(purge to remove all inculding configuration & data files)
+
+sudo apt-get autoremove
+
+sudo add-apt-repository ppa:webupd8team/gnome3
+sudo apt-get update (to make sure PPA is up-to-date)
+sudo apt-get upgrage -y (to update pkg)
+sudo apt-get dist-upgrade -y (to update & install new pkg)
+
+sudo dpkg -i filename.deb (*.deb)
+sudo apt-get install -f (autofix crashed installation due to poweroff or connection)
+
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+chmod (to manage file/folder permission)
+u(Owner User)	g(Group User)	o(Other User)	a(All)
++(allow permission)	-(refuse permission)
+r(read)	w(write)	x(execute)
+
+ls -l (check file permission)
+chmod +x filename (executable file for all users)
+chmod g+r filename (or) chmod g+rx filename
+chmod g+rx foldername (x is required for folder)
+chmod ugo+r filename/chmod a+r filename
+
+chmod go-r filename (- refuse permission to group & other)
+chmod -x file/foldername
+
+
+

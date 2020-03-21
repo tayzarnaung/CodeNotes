@@ -1,0 +1,42 @@
+git init
+git add .
+git commit -am "commit message"
+git status
+
+git remote add origin git@githuub.com:tayzarnaung/test.git
+git remote add origin https://github.com:tayzarnaung/test.git
+
+git push origin master (or) git push origin <branch-name>
+git pull origin master (or) git pull origin <branch-name>
+
+git log
+git log --pretty=oneline
+git checkout <commit-id>
+git checkout <branch-name>
+git checkout master
+
+git branch <new-branch-name> <commit-id>
+git branch <new-branch-name>
+git branch #To Check current branch & lists of branch
+
+git tag 0.1.0
+git checkout 0.1.0
+
+git merge master (or) <branch-name> 
+
+git clone pj ../pj2 
+cd pj2
+git remote show origin  (show URL of pj, origin)
+git pull origin master (pull to clone)
+(cannot git push oirgin mastet from clone )
+
+
+mkdir central
+cd central
+git init --bare  //central repo to record commit (like github)
+git clone . ../app1
+git clone . ../app2
+cd app1
+git remote show origin  (show link for pj)
+git remote remove origin
+git remote add origin ~/code/central
