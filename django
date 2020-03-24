@@ -6,6 +6,7 @@ django-admin --version (or) python -m django --version
 pip3 install flake8
 (python library that wraps PyFlakes + PEP8 + pycodestyle)
 (the best Logical & Stylistic linter for python)
+(better than pylint and pep8)
 
 Add these to settings.json of vscode
 (path => ~/home/wc/.config/Code/User/{}settings.json)
