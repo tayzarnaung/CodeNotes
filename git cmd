@@ -1,3 +1,7 @@
+sudo apt install git -y
+git --version
+git config --list
+
 git init
 git add .
 git commit -am "commit message"
