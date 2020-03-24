@@ -1,36 +1,43 @@
+sudo passwd wc(Ubuntu username)(~/home/wc) #to change password
+After reboot, old password must be typed as final time.
+
+
 cat /etc/lsb-release (to find current OS version)
 top (show CPU Usage, Memory Usage, Process)  'q' to quit
 lscpu (CPU detail info)
 
+
 ifconfig
 ping google.com
-poweroff
-reboot
+poweroff	reboot
 
 -	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
 
 ls --help (to know partner of ls)
 ls -al    (-a, --all  & -l use long listing format)
+ls -l > filename.txt
+echo "Here is your desired string." > filename.txt
+echo "Hello, World"
+
 
 mkdir foldername
 rmdir emptyfolder,	rm -r foldername,	rm filename.txt
 
+
 cp source_path/filename.jpg ~/Pictures
 cp -r foldername 	destination_path
-
 mv filename.txt ~/Documents
 mv foldername ~/Documents
+
 
 cat /home/test.txt  #to view text or code from script
 nano /home/test.txt
 gedit /home/test.txt
 touch /home/test.txt #to crate file
 
-ls -l > filename.txt
-echo "Here is your desired string." > filename.txt
-echo "Hello, World"
 
 -	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
 
 gzip hello.txt,	gzip -k hello.txt #(-k, --keep don't del input file)
 gzip -d hello.txt.gz	#d for Decompress
@@ -40,7 +47,9 @@ tar -czf archive.tar.gz foldername	#c to create
 tar -xzf archive.tar.gz 			#x to extract
 tar -xzf archive.tar.gz -C ~/Documents #C to change dir
 
+
 -	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
 
 sudo apt-get install vlc gparted gnome-tweak-tool wget
 sudo apt-get remove vlc (to remove binary files)
@@ -57,7 +66,9 @@ sudo apt-get dist-upgrade -y (to update & install new pkg)
 sudo dpkg -i filename.deb (*.deb)
 sudo apt-get install -f (autofix crashed installation due to poweroff or connection)
 
+
 -	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
 
 chmod (to manage file/folder permission)
 u(Owner User)	g(Group User)	o(Other User)	a(All)

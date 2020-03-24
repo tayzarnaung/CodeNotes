@@ -1,0 +1,55 @@
+"Generating SSH Key & adding it to ssh-agent"
+
+$ => ssh-keygen -t rsa -C "tzn68@gmail.com"
+
+Enter twice to make filename and passphrase(password) by default name.
+You will get two files named as "id_rsa" & "id_rsa.pub" in ~/.ssh folder.
+
+$ => eval "$(ssh-agent -s)"   #ssh agent enabled
+$ => ssh-add ~/.ssh/id_rsa	  #to know which key to use
+
+Copy all texts from id_rsa.pub and Paste to SSH keys under Github settings of tzn68@gmail.com. 
+(OR)
+sudo apt install xclip
+xclip -sel clip < ~/.ssh/id_rsa.pub #Copy all texts from id_rsa.pub
+
+
+"Multiple SSH keys for different github account"
+
+$	ssh-keygen -t rsa -C "tzn.it@gmail.com"
+
+Enter filename: id_rsa_tznit
+Enter password: fill in blank just enter button
+
+mv id_rsa_tznit id_rsa_tznit.pu ~/.ssh
+ssh-add ~/.ssh/id_rsa_tznit
+
+ssh-add -D #you can del all cached keys before
+ssh-add -l #Finally, you can check saved keys
+
+Copy all texts from id_rsa_tznit.pub and Paste to SSH keys under Github settings of tznit@gmail.com.
+	
+cd ~/.ssh
+touch config
+gedit config (or) subl config (or) vscode config (or) insiders config
+
+Type the following and Save.
+#tzn68@gmail.com account
+Host github.com
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_rsa
+
+#tzn.it@gmail.com account
+Host github-tznit
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_rsa_tznit
+
+-	-	-	-	-	-	-	-	-
+git remote add origin git@github.com:tayzarnaung/test.git
+git remote add origin git@github-tznit:tayzarnaung-it/test.git
+
+git clone git@github.com/tayzarnaung/test.git
+git clone git@github-tznit/tayzarnaung-it/test.git
+
