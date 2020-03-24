@@ -3,6 +3,47 @@ sudo apt install python3 python3-pip
 sudo apt install python3-django (or) python -m pip3 install django
 django-admin --version (or) python -m django --version
 
+pip3 install flake8
+(python library that wraps PyFlakes + PEP8 + pycodestyle)
+(the best Logical & Stylistic linter for python)
+
+Add these to settings.json of vscode
+(path => ~/home/wc/.config/Code/User/{}settings.json)
+
+{
+    "python.linting.flake8Args": [
+        "--max-line-length=120",
+        "--ignore=E302,E305, E501",
+		 //ignoring line too long error flake8(E501) 
+    ],
+}
+
+After installing django extension in vscode, settings.json must be updated by adding "emmet.includeLanguages":{} to track both django and html extensions in .html files.
+
+{
+    "editor.fontSize": 18,
+    "editor.fontWeight": "bold",
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "expand",
+    "workbench.iconTheme": "vscode-icons",
+    "sync.gist": "",
+    "workbench.colorTheme": "Visual Studio Dark",
+    "editor.renderWhitespace": "all",
+    "editor.minimap.enabled": false,
+    "window.menuBarVisibility": "toggle",
+    "[django-html]": {
+        
+    },
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    },
+    "python.linting.flake8Args": [
+        "--max-line-length=120",
+        "--ignore=E302,E305, E501",
+    ],
+}
+
+
 django-admin startproject mysite
 
 python manage.py runserver
