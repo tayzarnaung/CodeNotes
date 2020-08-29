@@ -21,7 +21,8 @@ echo "Hello, World"
 
 
 mkdir foldername
-rmdir emptyfolder,	rm -r foldername,	rm filename.txt
+rmdir emptyfolder,
+rm -r foldername, rm -r * , rm filename.txt
 
 
 cp source_path/filename.jpg ~/Pictures
@@ -51,21 +52,33 @@ tar -xzf archive.tar.gz -C ~/Documents #C to change dir
 -	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
 
 
-sudo apt-get install vlc gparted gnome-tweak-tool wget
-sudo apt-get remove vlc (to remove binary files)
-sudo apt-get remove purge vlc 
-(purge to remove all inculding configuration & data files)
-
-sudo apt-get autoremove
-
-sudo add-apt-repository ppa:webupd8team/gnome3
-sudo apt-get update (to make sure PPA is up-to-date)
-sudo apt-get upgrage -y (to update pkg)
-sudo apt-get dist-upgrade -y (to update & install new pkg)
-
-sudo dpkg -i filename.deb (*.deb)
+sudo apt install vlc gparted gnome-tweaks gnome-shell-extensions -y
+sudo apt install ./filename.deb (or) sudo dpkg -i filename.deb
 sudo apt-get install -f (autofix crashed installation due to poweroff or connection)
 
+sudo apt-add-repository ppa:webupd8team/gnome3
+sudo apt update          (to make sure PPA is up-to-date)
+sudo apt upgrage -y 	 (to update pkg)
+sudo apt dist-upgrade -y (to update & install new pkg)
+
+
+sudo apt remove vlc -y  (to remove binary files)
+sudo apt autoremove vlc (to remove also library, dependency)
+
+sudo apt remove vlc --purge
+sudo apt autoremove vlc --purge
+(purge to remove all inculding configuration & data files)
+
+sudo apt-get autoremove	(to remove unused depedency)
+sudo apt-get autoremove --purge
+
+sudo rm -rf /var/log/*
+
+sudo apt install aptitude 
+sudo aptitude autoclean (&) clean
+
+(   autoclean removes packages in .cache that can't be downloaded.
+    clean 	  removes all cached packages.  )
 
 -	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
 
@@ -85,4 +98,18 @@ chmod go-r filename (- refuse permission to group & other)
 chmod -x file/foldername
 
 
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+cd /mnt
+ls
+sudo chown wc /mnt/id(e.g.548356426)	
+# Change owner from sudo, super user, root to wc
+
+
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+
+cat /proc/sys/vm/swappiness
+sudo gedit /etc/sysctl.conf
+Type at the end of file: vm.swapness=10
 

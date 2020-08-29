@@ -1,0 +1,41 @@
+Control +Shift + P: Select "Package Control: Install Package", Type
+					"Theme - Sodarized" & "PackageResourceViewer" and press Enter to install them.
+
+Control +Shift + P: "UI - theme and select Theme" - select "Sodarized Dark3.sublime-theme".
+
+Control +Shift + P: "PacakageResourceViewer: Open Resource" & Type "Sodarize Dark 3.sublime-theme" to modify.
+
+Command + F to find the sidebar_label, tab_label property to enlarge fonts.
+
+	// TAB Label
+    {
+        "class": "tab_label",
+        "fade": true,
+        "fg": [62, 146, 167],
+        "shadow_color": [15, 15, 15],
+        "shadow_offset": [0, -1],
+        "font.size": 14, 
+        "font.bold":true, "font.italic": true
+    },
+    
+    // Sidebar tree
+    {
+        "class": "sidebar_tree",
+        "row_padding": [5, 5],
+        "indent": 15,
+        "indent_offset": 15,
+        "indent_top_level": false,
+        "dark_content": true
+    },
+    
+    // Sidebar entry
+    {
+        "class": "sidebar_label",
+        "color": [52, 106, 127],
+        "shadow_color": [0, 0, 0],
+        "shadow_offset": [0, -1],
+        "font.bold": true,
+        "font.size":14
+    },
+
+

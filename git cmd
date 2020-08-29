@@ -2,45 +2,92 @@ sudo apt install git -y
 git --version
 git config --list
 
-git init
-git add .
-git commit -am "commit message"
-git status
+git branch <new-branch-name>
+git branch -d <branch-name> 	VS	git branch --delete <branch-name>
+git branch #To Check current branch & lists of branch
 
-git remote add origin git@githuub.com:tayzarnaung/test.git
-git remote add origin https://github.com:tayzarnaung/test.git
-
-git push origin master (or) git push origin <branch-name>
-git pull origin master (or) git pull origin <branch-name>
+git tag 0.1.0	VS	git tag --delete 0.1.0
 
 git log
 git log --pretty=oneline
+git log --pretty=oneline branchB..branchA	# show commits on branchA thar are not on branchB
+git log branchB..branchA --pretty=oneline
+git log --follow <file-name>	# list version history for a file, including renames
+
 git checkout <commit-id>
 git checkout <branch-name>
 git checkout master
-
-git branch <new-branch-name> <commit-id>
-git branch <new-branch-name>
-git branch #To Check current branch & lists of branch
-
-git tag 0.1.0
 git checkout 0.1.0
 
-git merge master (or) <branch-name> 
+git merge master (or) <branch-name>
+
+In CLI, a single hyphen can be followed by multiple single-character flags. A double hyphen prefixes a single, multicharacter option.
+	tar -czf	=> -czf specifies three single-character flags: c, z, and f 
+	tar --exclude	=> tar interprets it as exclude rather than a combination of e, x, c, l, u, d, e
+
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+git remote add origin git@githuub.com:tayzarnaung/test.git
+git remote add origin https://github.com:tayzarnaung/test.git
+git remote show origin 
+git remote remove origin
+
+git clone git@githuub.com:tayzarnaung/test.git
+git clone https://github.com:tayzarnaung/test.git
+
+git push origin master (or) git push origin <branch-name>
+git pull origin master (or) git pull origin <branch-name>
 
 git clone pj ../pj2 
 cd pj2
 git remote show origin  (show URL of pj, origin)
 git pull origin master (pull to clone)
-(cannot git push oirgin mastet from clone )
+(cannot git push oirgin master from clone )
 
-
-mkdir central
+mkdir ~/code/centralism
 cd central
-git init --bare  //central repo to record commit (like github)
+git init --bare  //centralism repo to record commit (like github)
 git clone . ../app1
-git clone . ../app2
+git clone centralism app2
 cd app1
 git remote show origin  (show link for pj)
 git remote remove origin
-git remote add origin ~/code/central
+git remote add origin ~/code/centralism
+git remote add origin /home/wc/code/centralism
+
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+git reset .
+# Unstaged changes after reset:
+# M       catalog/models.py
+# M       catalog/urls.py
+
+git reset --hard
+HEAD is now at ac1cd8b<commit-id> first commit<commit-message>
+
+# "git reset ." removes Staged Changes(git add .)
+# "git reset --hard" discard all changes - modified(M) changes & Staged Changes.
+# "git reset <commit-id>"	# del all commits after <commit-id>
+# git reset <file-name>
+# "git reset --hard <commit-id>"
+
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+git stash     
+git stash pop  # to restore those changes when you’re back in the branch where you want to apply those changes
+
+#to stash away all your uncommitted changes(Changes, Staged Changes i.e. git add .) in your current branch,
+
+git stash is that it is maintained across the all branches in your git repository. What that means is if you do git stash in feature-xyz branch, you can run git stash pop in master branch, for example. This can be useful if you’ve accidentally written code on a wrong branch.
+
+When typed 'git stash' twice and call 'git stash pop', only second git stash data will be loaded. E.g.
+hello world
+git stash
+hi greeting
+git stash
+git stash pop will reload only hi greeting.
+
+git stash pop, pull, push may conflict.
+
+-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+

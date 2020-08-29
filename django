@@ -45,6 +45,9 @@ After installing django extension in vscode, settings.json must be updated by ad
 }
 
 
+(Ctrl+Shift+P) and select the Python: Select Linter 
+Choose Flake8
+
 django-admin startproject mysite
 
 python manage.py runserver
@@ -67,6 +70,15 @@ Whenever you change models (in models.py),
 	python manage.py makemigrations polls(web app name)
 	python manage.py migrate
 
+python manage.py sqlmigrate polls 001
+python manage.py check  #checks for any problems in project without making migrations or touching the database.
 python manage.py shell
-	
+
+pip3 install -r requirements.txt
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py collectstatic
+python3 manage.py test 
+python3 manage.py test polls (web app name)
+
 

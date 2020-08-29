@@ -5,7 +5,9 @@ bashrc is a shell script that Bash runs whenever it is started interactively. It
 alias python=python3
 
 
-#Overwrite to show current git branch in bash prompt
+# How to show git branch in terminal
+# Overwrite in ~/.bashrc to show current git branch in bash prompt
+# Restart terminal or type 'source ~/.bashrc' in terminal
 parse_git_branch() {
  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
