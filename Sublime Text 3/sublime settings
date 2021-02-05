@@ -1,0 +1,98 @@
+{
+	"theme": "Sodarized Dark 3.sublime-theme",
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
+	"show_definitions": false,
+	"show_errors_inline": false,
+	"word_wrap": false,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	
+	"font_face": "Source Code Pro",
+	"font_options":
+	[
+		"no_round"
+	],
+	"font_size": 16,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	
+	"scroll_past_end": true,
+	"scroll_speed": 5.0,	
+	"preview_on_click": false,
+	"show_full_path": false,
+	"open_files_in_new_window": false,
+	
+	"installed_packages":
+	[
+		"Anaconda",
+		"BracketHighlighter",
+		"SideBarEnhancements"
+	],
+		
+	"bold_folder_labels": true,
+	"caret_extra_width": 1,
+	"caret_style": "phase",
+	"close_windows_when_empty": false,	
+	"copy_with_empty_selection": false,
+	"drag_text": false,
+	"draw_minimap_border": true,
+	"draw_white_space": "none",
+	"enable_tab_scrolling": false,
+	"ensure_newline_at_eof_on_save": true,
+	
+	"file_exclude_patterns":
+	[
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.sublime-workspace"
+	],
+		
+	"ignored_packages":
+	[
+		"ActionScript",
+		"AppleScript",
+		"ASP",
+		"D",
+		"Diff",
+		"Erlang",
+		"Graphviz",
+		"Groovy",
+		"HTML-CSS-JS Prettify",
+		"Lisp",
+		"Lua",
+		"Objective-C",
+		"OCaml",
+		"Rails",
+		"Ruby",
+		"Vintage"
+	],
+	
+	"match_brackets_content": false,
+	"match_selection": false,
+	"match_tags": false,
+	"mini_diff": false,	
+	"overlay_scroll_bars": "enabled",
+	"show_encoding": true,		
+	"sidebar_default": true,
+	"swallow_startup_errors": true,
+	"use_simple_full_screen": true,
+}
+

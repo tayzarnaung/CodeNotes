@@ -1,0 +1,5 @@
+docker run --device=/dev/video0 --volume /home/wc/Desktop/dockerVolume:/andfun --name andfun -it andfun bash
+
+
+docker run --device=/dev/video0  --name andfun -it andfun bash
+docker run --device=/dev/video0  --name=andfun -it andfun bash

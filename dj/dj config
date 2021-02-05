@@ -8,6 +8,9 @@ pip3 install flake8
 (the best Logical & Stylistic linter for python)
 (better than pylint and pep8)
 
+(Ctrl+Shift+P) and select the Python: Select Linter 
+Choose Flake8
+
 Add these to settings.json of vscode
 (path => ~/home/wc/.config/Code/User/{}settings.json)
 
@@ -45,40 +48,5 @@ After installing django extension in vscode, settings.json must be updated by ad
 }
 
 
-(Ctrl+Shift+P) and select the Python: Select Linter 
-Choose Flake8
-
-django-admin startproject mysite
-
-python manage.py runserver
-python manage.py runserver 8080
-python manage.py createsuperuser
-python manage.py startapp polls
-
-python manage.py migrate 
-	# run migrations for apps which registered in INSTALLED_APPS(settings.py) & manage database schema
-
-"Activating new models"
-INSTALLED_APPS = ['polls.apps.PollsConfig', ......]
-
-python manage.py makemigrations polls 
-	#created polls/migrations/001_initial.py
-python manage.py sqlmigrate polls 001 
-	#prints to screen what Django will do.
-
-Whenever you change models (in models.py),
-	python manage.py makemigrations polls(web app name)
-	python manage.py migrate
-
-python manage.py sqlmigrate polls 001
-python manage.py check  #checks for any problems in project without making migrations or touching the database.
-python manage.py shell
-
-pip3 install -r requirements.txt
-python3 manage.py makemigrations
-python3 manage.py migrate
-python3 manage.py collectstatic
-python3 manage.py test 
-python3 manage.py test polls (web app name)
 
 

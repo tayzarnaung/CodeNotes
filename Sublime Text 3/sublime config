@@ -1,0 +1,27 @@
+'Sodarized' Theme, 'Monokai Color' Scheme
+
+
+Ctrl + Shift + P (Command Palette)
+=> Package Control: Install Package
+=> Package Control: Remove Package
+
+1. BracketHighlighter
+2. SidebarEnhancement
+3. Anaconda
+4. Git, Alignment, Trimmer, Advance New File
+5. SublimeLinter, SublimeLinter-flake8
+
+
+~/.config/sublime-text-3/Packages/User   (Sublime Text User Settings)
+Preferences/Package Settings/SublimeLinter/Settings
+
+// SublimeLinter Settings - User
+{
+    "lint_mode": "load_save",
+    "linters": {
+        "flake8": {
+            "args": ["--ignore=F401,E501,E127,E128,W191"],
+        }
+    }
+}
+
