@@ -1,0 +1,25 @@
+sudo gedit /etc/environment
+PATH=""/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/snap/bin:/usr/bin/python3"
+reboot
+echo $PATH in terminal
+
+
+sudo apt install python3 python3-pip python3-tk python3-django
+
+pip install opencv-python, numpy, matplotlib
+
+bash anaconda.sh
+jupyter notebook
+
+conda activate
+conda deactivate
+
+# Typing this in Terminal will get ~/.condarc to prevent Conda from activating the base environment by default
+
+conda config --set auto_activate_base false
+
+
+python/pip/conda --version
+pip/conda list
+pip freeze > requirement.txt
+

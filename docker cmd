@@ -1,5 +1,219 @@
-docker run --device=/dev/video0 --volume /home/wc/Desktop/dockerVolume:/andfun --name andfun -it andfun bash
+Docker storage path => /var/lib/docker
+
+docker info/ stats/ --version(-v)
+docker logs con/img
+
+docker inspect con/img/vol/network(bridge, host, none)
+docker con/img/vol/network inspect their ids or names
+docker con/img/vol/network ls
+docker con/img/vol/network prune -y
+
+docker cp /home/wc/Desktop/code/pydir con-id:/path
+
+-	-	-	-	-	-	-	-	-	-	-	-
+
+"Docker Hub"
+
+docker pull ubuntu python redis:4.0 <img-name>
+
+docker commit -m "docker uploaded" -a "T Z N" ccon_name img_name
+docker login -u <docker hub name>
+docker tag my_img tzn/my_img
+docker push tzn/my_img
+docker pull tzn/my_img
+
+-	-	-	-	-	-	-	-	-	-	-	-
+
+"docker-compose.yml"
+
+docker-compose up
+docker-compose up -d --build
+docker-compose exec python3 bash
+
+redis:	(# docker run --name=redis redis)
+	image: redis
+	
+db:		(# docker run --name=db postgres9.4)
+	image: postgres:9.4
+	
+vote:	(# docker run --name=vote -p 5000:80 --link redis:redis voting-app)
+	build: ./vote (or) image: voting-app
+	ports:
+		- 5000:80
+	links:
+		- redis
+		
+result:
+	build: ./result (or) image:result-app
+	ports: 5001:80
+	links: db
+	
+worker:	(# docker run --name=worker --link db:db --link redis:redis worker)
+	image: worker (or) build ./worker
+	links:
+		- db
+		- redis
 
 
-docker run --device=/dev/video0  --name andfun -it andfun bash
-docker run --device=/dev/video0  --name=andfun -it andfun bash
+"docker-compose.yml"
+
+version: '2'
+
+services:
+	redis:
+		image: redis
+		networks: back-end
+	db:
+		image: postgres:9.4
+		networks: 
+			- front-end
+			- back-end
+			
+	vote:
+		image: voting-app
+		networks:
+			-front-end
+			-back-end
+	result:
+		image: result
+		networks:
+			- front-end
+			- back-end
+networks:
+	front-end:
+	back-end:
+	
+	
+"docker-compose.yml"
+
+version: '3'
+
+services:
+	python3:
+		restart: always
+		build: .
+		container_name: 'python3'
+		working_dir: '/root'
+		volumes: ./opt:/root/opt
+
+-	-	-	-	-	-	-	-	-	-	-	-
+"Dockerfile"
+
+FROM python:3.8
+WORKDIR  /code
+COPY ./app ./app(docker dir => root/code/app)
+COPY req.txt .	(pip freeze > req.txt)
+RUN apt update && apt install python3-tk
+RUN pip install -r req.txt
+RUN pip install requests beautifulsoup4 opencv-python numpy matplotlib
+ADD main.py .
+CMD ["python", "./code/main.py"]
+
+# Modifying and rebuilding Dockerfile is faster than building first time
+docker build -t <img-name> .	# build Dockerfile into img
+docker build Dockerfile2 -t <img-name>			
+docker run -it --name <con-name> <img-name>		# make img into con
+
+
+FROM ubuntu  #<base-image>
+CMD sleep 5 (or) CMD ['sleep','5']
+# CMD sleep(executable) 5(parameter)
+
+docker build -t sleeper .
+docker run --name sleeper sleeper
+(OR)
+docker run --name sleeper ubuntu sleep 5
+
+
+FROM ubuntu
+ENTRYPOINT ['sleep']	
+
+docker build -t sleeper
+docker run --name sleeper sleeper 10
+
+
+FROM ubuntu
+ENTRYPOINT ['sleep']
+CMD ['5']
+
+docker build -t sleeper . 
+docker run --name sleeper sleeper	    # using default param 5
+docker run --name sleeper sleeper 10	# CMD at startup
+
+-	-	-	-	-	-	-	-	-	-	-	-
+
+"Images"
+
+docker images -a(all)
+
+docker image prune
+docker image prune -a (Remove all that are not referenced by any existing container)
+docker rmi -f img
+
+
+docker run -it ubuntu (=img-name)
+	apt update
+	apt install python3 python3-pip python3-tk
+	pip3 install opencv-python
+	
+docker run --name python(con) -it python:3.8(img) [bash]
+docker run --name python(con) -id python:3.8(img)
+
+docker run --name <con-name> -e APP_COLOR=blue <img-name> 	# docker env var
+docker run --name <con-name> -p 8000:8000 <img-name>
+docker run --name <con-name> -v /usr/aaa(docker host, browser):/var/lib/mysql(con port)
+docker run --name <con-name> --device=/dev/video0:/dev/video0 -it <img-name> [bash]
+
+docker run <img-name> --network=host
+1.Bridge(default), 2.host, 3.none
+
+-	-	-	-	-	-	-	-	-	-	-	-
+
+"Docker Volume"
+
+docker volume ls
+docker volume rm vol
+
+docker volume inspect <vol-name> or <vol-id>
+docker inspect <vol-name> or <vol-id>
+
+docker volume create <vol-name>
+
+1. "Volume Mounting" mounts from volume dir inside docker(/var/lib/docker)
+	docker run --name <con-name> -v vol-name2:/var/lib/mysql mysql
+	# vol-name2 will be created automatically if it doesn't exist.
+
+2. "Bind Mounting" mounts a dir from any location of docker host
+	docker run -v /home/data(docker host):/var/lib/mysql(inside con) mysql(img)
+		
+-v(old style)	--mount(new style/preferred way)
+
+docker run \
+--mount type=bind,source=/home/data, target=/var/lib/mysql mysql
+
+-	-	-	-	-	-	-	-	-	-	-	-
+
+"Container"
+
+docker ps -a(all) -l(latest container created)
+
+dokcer container prune	(Remove all stopped con)
+docker rm -f con
+
+docker export con | gizip > name.gz
+
+docker start/stop con
+docker start [options] con [con, . . .]
+docker container rename <old-name> <new-name>
+
+docker exec python(con) /bin/sh(shell terminal)
+docker exec python(con) /bin/bash (or) CMD
+
+-	-	-	-	-	-	-	-	-	-	-	-
+
+Althoug deleting img that is used by con, con can keep run.
+If new img is built as the same existing img name, old existing img name becomes none.
+As for con, error will be shown to rename or remove old con.
+Even if img and con are deleted, con volume will remain.
+
+

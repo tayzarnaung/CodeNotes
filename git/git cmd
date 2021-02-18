@@ -28,7 +28,7 @@ git push origin --delete <old-branch-name>		# del old branch on github
 
 git merge master 	# merge commit messages of master branch to a current working branch
 git merge <branch-name>	# merge commit messages of <branch-name> to master branch
-git push origin master
+git push origin master	# push current git branch code to git-hub master branch
 git push origin <branch-name>	(or) 	git push --force origin <branch-name>
 git pull origin master (or) git pull origin <branch-name>
 
